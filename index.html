@@ -4,50 +4,51 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Gabriel Jorge Coutinho - Portfólio</title>
-  <link rel="stylesheet" href="./style.css" />
+  <link rel="stylesheet" href="style.css" />
   <link rel="shortcut icon" href="./logoPages.png" type="image/x-icon">
 </head>
 <body>
-  <div class="container">
-    <div class="glass-effect">
+  <main class="portfolio-container">
+    <aside class="sidebar">
+      <img src="./eu.jpg" alt="Gabriel Jorge Coutinho" class="avatar" />
+      <h1>Gabriel Jorge Coutinho</h1>
+      <p class="title">Desenvolvedor Web</p>
 
-      <!-- Imagem de perfil -->
-      <img src="./eu.jpg" alt="Foto de Gabriel Jorge Coutinho" class="profile-image" />
+      <div class="social">
+        <a href="https://github.com/gabrieljcoutinho" target="_blank">
+          <img src="./github.png" alt="GitHub">
+        </a>
+        <a href="https://www.linkedin.com/in/gabriel-jorge-coutinho/" target="_blank">
+          <img src="./linkedin.png" alt="LinkedIn">
+        </a>
+        <a href="https://www.instagram.com/gabrieljorgecoutinho/" target="_blank">
+          <img src="./instagram.png" alt="Instagram">
+        </a>
+      </div>
+    </aside>
 
-      <!-- Nome -->
-      <h1 class="titulo">Gabriel Jorge Coutinho</h1>
+    <section class="content">
+      <section class="about">
+        <h2>Sobre Mim</h2>
+        <p>Olá! Sou um desenvolvedor web apaixonado por criar experiências interativas e visuais modernas. Tenho habilidades em HTML, CSS, JavaScript e React, buscando sempre aprender novas tecnologias para aprimorar meus projetos.</p>
+      </section>
 
-      <!-- Bio -->
-      <p class="bio" id="sobre">
-        Olá! Sou um desenvolvedor web apaixonado por criar experiências interativas e visuais modernas. Tenho habilidades em HTML, CSS, JavaScript e React, buscando sempre aprender novas tecnologias para aprimorar meus projetos.
-      </p>
-
-      <!-- Habilidades -->
-      <div class="skills" id="habilidades">
+      <section class="skills">
         <h2>Habilidades</h2>
-        <ul class="skills-list">
-          <li><img src="./html5.png" alt=""></li>
-          <li><img src="./css-3.png" alt=""></li>
-          <li><img src="./javaScript.png" alt=""></li>
-          <li><img src="./nodejs.png" alt=""></li>
+        <div class="skills-icons">
+          <img src="./html5.png" alt="HTML5">
+          <img src="./css-3.png" alt="CSS3">
+          <img src="./javaScript.png" alt="JavaScript">
+          <img src="./nodejs.png" alt="Node.js">
+        </div>
+      </section>
 
-        </ul>
-      </div>
-
-   <ul class="contato">
-  <li><a href="https://github.com/gabrieljcoutinho" target="_blank"><img src="./github.png" alt="" class="redeSocial"></a></li>
-  <li><a href="https://www.linkedin.com/in/gabriel-jorge-coutinho/" target="_blank"><img src="./linkedin.png" alt="" class="redeSocial"></a></li>
-  <li><a href="https://www.instagram.com/gabrieljorgecoutinho/" target="_blank"><img src="./instagram.png" alt="" class="redeSocial"></a></li>
-</ul>
-
-      <!-- Contato -->
-      <div id="contato">
+      <section class="contact">
         <h2>Contato</h2>
-        <p>Email: gabrieljcoutinho@gmail.com</p>
-        <p>WhatsApp: (11) 99455-7840</p>
-      </div>
-
-    </div>
-  </div>
+        <p>Email: <a href="mailto:gabrieljcoutinho@gmail.com">gabrieljcoutinho@gmail.com</a></p>
+        <p>WhatsApp: <a href="https://wa.me/5511994557840" target="_blank">(11) 99455-7840</a></p>
+      </section>
+    </section>
+  </main>
 </body>
 </html>
