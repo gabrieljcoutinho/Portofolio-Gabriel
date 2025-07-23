@@ -84,7 +84,6 @@ body {
     filter: brightness(1.5);
 }
 
-/* Conteúdo */
 .content {
     flex: 3 1 600px;
     display: flex;
@@ -95,7 +94,8 @@ body {
 
 .about,
 .skills,
-.contact {
+.contact,
+.projects {
     padding: 25px;
 }
 
@@ -124,6 +124,52 @@ h2 {
     transform: scale(1.2) rotate(5deg);
 }
 
+/* Projetos */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.project-card {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 20px rgba(0, 204, 255, 0.2);
+}
+
+.project-card h3 {
+    margin-bottom: 10px;
+    color: #00ccff;
+}
+
+.project-card p {
+    font-size: 0.95em;
+    color: #ccc;
+    margin-bottom: 15px;
+}
+
+.project-card a {
+    display: inline-block;
+    background-color: #00ccff;
+    color: #000;
+    text-decoration: none;
+    padding: 8px 16px;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+}
+
+.project-card a:hover {
+    background-color: #00aacc;
+}
+
 /* Contato */
 .contact a {
     color: #66ccff;
@@ -134,7 +180,7 @@ h2 {
     text-decoration: underline;
 }
 
-/* Responsivo para telas menores */
+/* Responsivo para celular */
 @media (max-width: 768px) {
     .portfolio-container {
         flex-direction: column;
@@ -144,7 +190,6 @@ h2 {
 
     .sidebar {
         padding: 20px;
-        flex: none;
         width: 100%;
     }
 
@@ -168,7 +213,6 @@ h2 {
 
     .content {
         padding: 20px;
-        flex: none;
         width: 100%;
     }
 
@@ -178,5 +222,9 @@ h2 {
 
     .skills-icons img {
         width: 50px;
+    }
+
+    .projects-grid {
+        grid-template-columns: 1fr;
     }
 }
