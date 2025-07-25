@@ -74,10 +74,11 @@ body {
 }
 
 .social a img {
-    width: 32px;
+    width: 40px;
     margin: 0 8px;
     transition: transform 0.3s ease, filter 0.3s;
 }
+
 
 .social a img:hover {
     transform: scale(1.2);
@@ -207,9 +208,11 @@ h2 {
     }
 
     .social a img {
-        width: 28px;
-        margin: 0 6px;
+        width: 40px;
+        margin: 0 8px;
+        transition: transform 0.3s ease, filter 0.3s;
     }
+
 
     .content {
         padding: 20px;
@@ -238,4 +241,7 @@ h2 {
         min-width: unset;
         flex: none;
     }
+
+
+
 }
