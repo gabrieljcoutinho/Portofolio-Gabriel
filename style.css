@@ -30,7 +30,7 @@ body {
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
 }
 
-/* Layout */
+/* Layout principal */
 .portfolio-container {
     display: flex;
     flex-wrap: wrap;
@@ -124,7 +124,7 @@ h2 {
     transform: scale(1.2) rotate(5deg);
 }
 
-/* Projetos */
+/* Projetos - padrão para desktop */
 .projects-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -224,7 +224,18 @@ h2 {
         width: 50px;
     }
 
+    /* NOVO: Scroll vertical nos projetos, limitado */
     .projects-grid {
+        display: grid;
         grid-template-columns: 1fr;
+        gap: 15px;
+        max-height: 600px;
+        /* altura máxima para caber uns 3 cards */
+        overflow-y: auto;
+    }
+
+    .project-card {
+        min-width: unset;
+        flex: none;
     }
 }
