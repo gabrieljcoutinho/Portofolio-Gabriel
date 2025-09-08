@@ -244,3 +244,22 @@ h2 {
 
 
 }
+
+
+
+.btn-curriculo {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 20px;
+    background: #0077b5;
+    /* azul LinkedIn */
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: background 0.3s ease;
+}
+
+.btn-curriculo:hover {
+    background: #005582;
+}
