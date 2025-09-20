@@ -106,6 +106,8 @@ h2 {
     color: #00ccff;
     border-left: 4px solid #00ccff;
     padding-left: 10px;
+    font-family: 'Montserrat', sans-serif;
+    /* Só para títulos */
 }
 
 /* Habilidades */
