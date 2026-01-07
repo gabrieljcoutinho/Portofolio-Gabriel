@@ -38,21 +38,33 @@
     filter: brightness(1.5);
 }
 
+/* ================= RESPONSIVO ================= */
+
+@media (max-width: 1024px) {
+    .certificates-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 18px;
+    }
+}
+
 @media (max-width: 768px) {
+
     .portfolio-container {
         flex-direction: column;
-        padding: 10px;
-        gap: 10px;
+        padding: 12px;
+        gap: 12px;
     }
 
     .sidebar {
         padding: 20px;
         width: 100%;
+        text-align: center;
     }
 
     .avatar {
-        width: 120px;
-        height: 120px;
+        width: 110px;
+        height: 110px;
+        margin: 0 auto 15px;
     }
 
     .sidebar h1 {
@@ -64,12 +76,13 @@
     }
 
     .content {
-        padding: 20px;
+        padding: 18px;
         width: 100%;
     }
 
     h2 {
-        font-size: 1.3em;
+        font-size: 1.35em;
+        text-align: center;
     }
 
     .skills-icons img {
@@ -78,25 +91,55 @@
 
     .projects-grid {
         grid-template-columns: 1fr;
-        max-height: 600px;
-        overflow-y: auto;
+        max-height: none;
+        overflow: visible;
     }
-}
 
-@media (max-width: 1024px) {
-    .certificates-grid {
-        grid-template-columns: repeat(3, 1fr);
-    }
-}
-
-@media (max-width: 768px) {
+    /* 📱 certificados mais confortáveis */
     .certificates-grid {
         grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+    }
+
+    .certificate-card {
+        padding: 14px;
+        border-radius: 16px;
     }
 }
 
 @media (max-width: 480px) {
+
+    /* 🔥 UM CERTIFICADO EMBAIXO DO OUTRO */
     .certificates-grid {
         grid-template-columns: 1fr;
+        gap: 20px;
     }
+
+    .certificate-card {
+        padding: 14px;
+        border-radius: 18px;
+    }
+
+    .certificate-card img {
+        width: 100%;
+        border-radius: 14px;
+    }
+
+    .avatar {
+        width: 95px;
+        height: 95px;
+    }
+
+    .sidebar h1 {
+        font-size: 1.25em;
+    }
+
+    .title {
+        font-size: 0.9em;
+    }
+}
+
+/* toque no celular */
+.certificate-card:active {
+    transform: scale(0.97);
 }
