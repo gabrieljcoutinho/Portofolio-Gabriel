@@ -2,122 +2,384 @@
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Certificados - Gabriel Jorge Coutinho</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Certificados | Gabriel</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 
-  <link rel="stylesheet" href="css/reset.css">
-  <link rel="stylesheet" href="css/base.css">
-  <link rel="stylesheet" href="css/layout.css">
-  <link rel="stylesheet" href="css/components.css">
-  <link rel="stylesheet" href="css/sections.css">
-  <link rel="stylesheet" href="css/buttons.css">
-  <link rel="stylesheet" href="css/responsive.css">
-  <link rel="stylesheet" href="css/certificados.css">
-  <link rel="stylesheet" href="./css/modal.css">
+  <style>
+    /* RESET E BASE */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      background: #0d0d17;
+      color: #e0e0ff;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
 
-  <link rel="shortcut icon" href="./img/logoPages.png" type="image/x-icon">
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    .background {
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(circle at 15% 25%, rgba(120, 100, 255, 0.08) 0%, transparent 50%),
+        radial-gradient(circle at 85% 75%, rgba(0, 220, 255, 0.05) 0%, transparent 50%);
+      pointer-events: none;
+      z-index: -2;
+    }
+
+    /* NAVEGAÇÃO */
+    nav {
+      position: fixed;
+      top: 0; width: 100%;
+      padding: 1.2rem 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(13, 13, 23, 0.9);
+      -webkit-backdrop-filter: blur(10px);
+      backdrop-filter: blur(10px);
+      z-index: 1000;
+    }
+
+    .logo {
+      font-size: 1.7rem; font-weight: 800;
+      background: linear-gradient(90deg, #c084fc, #60a5fa);
+      -webkit-background-clip: text; background-clip: text;
+      color: transparent; text-decoration: none;
+    }
+
+    .nav-links { display: flex; gap: 2.2rem; list-style: none; }
+    .nav-links a { color: #d1d5db; text-decoration: none; font-weight: 500; }
+
+    /* SEÇÕES AMPLAS */
+    .cert-section {
+      padding: 4rem 4%;
+      max-width: 1600px; /* Aumentei o limite da largura */
+      margin: 0 auto;
+    }
+
+    .page-header { padding: 10rem 6% 3rem; text-align: center; }
+    .page-header h1 { font-size: 3.5rem; }
+    .page-header h1 span { color: #c084fc; }
+
+    .institution-title {
+      display: flex; align-items: center; gap: 1rem;
+      font-size: 2rem; margin-bottom: 3rem; color: #fff;
+      border-left: 5px solid #c084fc; padding-left: 20px;
+    }
+
+    /* GRID DE 4 COLUNAS MAIORES */
+    .cert-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem; /* Mais espaço entre as divs */
+    }
+
+    /* CARD DO CERTIFICADO GRANDE */
+    .cert-card {
+      background: rgba(25, 25, 45, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      overflow: hidden;
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      opacity: 0;
+      transform: translateY(40px);
+      height: 100%; /* Garante que todos tenham a mesma altura */
+    }
+
+    .cert-card.visible { opacity: 1; transform: translateY(0); }
+
+    .cert-card:hover {
+      transform: translateY(-12px) scale(1.02);
+      border-color: #c084fc;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    }
+
+    /* IMAGEM DO CERTIFICADO AUMENTADA */
+    .cert-img {
+      width: 100%;
+      height: 240px; /* Aumentei a altura da imagem significativamente */
+      background: #1a1a2e;
+      overflow: hidden;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .cert-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover; /* Ou 'contain' se quiser ver o certificado inteiro sem cortar */
+      transition: 0.6s;
+    }
+
+    .cert-info { padding: 1.8rem; }
+    .cert-info h3 {
+      font-size: 1.1rem;
+      margin-bottom: 0.8rem;
+      color: #fff;
+    }
+
+    .btn-view {
+      color: #c084fc; text-decoration: none;
+      font-size: 1rem; font-weight: 600;
+      display: flex; align-items: center; gap: 8px;
+      transition: 0.3s;
+    }
+    .btn-view:hover { color: #fff; }
+
+    /* RESPONSIVIDADE */
+    @media (max-width: 1200px) { .cert-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 768px) {
+      .cert-grid { grid-template-columns: 1fr; }
+      .cert-img { height: 200px; }
+    }
+
+    h3{
+      font-size: 18px;
+    }
+
+    footer { text-align: center; padding: 5rem; color: #4b5563; font-size: 1.1rem; }
+  </style>
 </head>
-
 <body>
 
   <div class="background"></div>
 
-  <main class="portfolio-container">
+  <nav>
+    <a href="index.html" class="logo">Portfolio</a>
+    <ul class="nav-links">
+      <li><a href="index.html#home">Home</a></li>
+      <li><a href="index.html#projetos">Projetos</a></li>
+      <li><a href="certificados.html">Certificados</a></li>
+    </ul>
+  </nav>
 
-    <aside class="sidebar glass">
-      <img src="./img/eu.png" alt="Gabriel Jorge Coutinho" class="avatar">
-      <h1>Gabriel Jorge Coutinho</h1>
-      <p class="title">Desenvolvedor Web</p>
-      <a href="index.html" class="btn-curriculo">⬅ Voltar ao Portfólio</a>
-    </aside>
+  <header class="page-header">
+    <h1>Meus <span>Certificados</span></h1>
+  </header>
 
-    <section class="content">
-      <section class="glass certificates">
-        <h2>Meus Certificados</h2>
-        <p>Certificados organizados por instituição de ensino. Clique na imagem para ampliar.</p>
+  <section class="cert-section">
 
-        <h3 class="cert-platform">🎓 Alura</h3>
-        <div class="certificates-grid">
-          <div class="certificate-card"><img src="./certificados/Alura/algoritimoEOrdenacao.png" alt=""></div>
-          <div class="certificate-card"><img src="./certificados/Alura/arquitetura.png" alt=""></div>
-          <div class="certificate-card"><img src="./certificados/Alura/arrays.png" alt=""></div>
-          <div class="certificate-card"><img src="./certificados/Alura/arrays2.png" alt=""></div>
-          <div class="certificate-card"><img src="./certificados/Alura/classesEPosicionamento.png" alt=""></div>
-          <div class="certificate-card"><img src="./certificados/Alura/comoPUblicarNogit.png" alt=""></div>
-          <div class="certificate-card"><img src="./certificados/Alura/compartilhandoEColaborandoProjetos.png" alt=""></div>
-          <div class="certificate-card"><img src="./certificados/Alura/desenvolvendoEmReact.png" alt=""></div>
-          <div class="certificate-card"><img src="./certificados/Alura/flexBox.png" alt=""></div>
-          <div class="certificate-card"><img src="./certificados/Alura/flexBoxPosicionamento.png" alt=""></div>
-          <div class="certificate-card"><img src="./certificados/Alura/gitEGitHuvDominio.png" alt=""></div>
-          <div class="certificate-card"><img src="./certificados/Alura/htmlPT2.png" alt=""></div>
-          <div class="certificate-card"><img src="./certificados/Alura/htmlPT3.png" alt=""></div>
-          <div class="certificate-card"><img src="./certificados/Alura/htmlPT4.png" alt=""></div>
-          <div class="certificate-card"><img src="./certificados/Alura/objeto.png" alt=""></div>
-          <div class="certificate-card"><img src="./certificados/Alura/praticandoReact.png" alt=""></div>
-          <div class="certificate-card"><img src="./certificados/Alura/rotinasComChatGpt.png" alt=""></div>
-          <div class="certificate-card"><img src="./certificados/Alura/trabalhandoComRepositoriosNogit.png" alt=""></div>
-          <div class="certificate-card"><img src="./certificados/Alura/variaveisEFuncoes.png" alt=""></div>
-             <div class="certificate-card"><img src="./certificados/Alura/Kanban análises para implementação.png" alt=""></div>
+    <h2 class="institution-title"><i class="fas fa-graduation-cap"></i> Alura</h2>
+    <div class="cert-grid">
+
+      <div class="cert-card">
+        <div class="cert-img"><img src="./certificados//Alura/algoritimoEOrdenacao.png" alt="Certificado"></div>
+        <div class="cert-info">
+          <h3>Algoritimo e ordenação</h3>
+
         </div>
+      </div>
 
-        <h3 class="cert-platform">🚀 DIO</h3>
-        <div class="certificates-grid">
-          <div class="certificate-card"><img src="./certificados/DIO/algoritimoEaprendizadoDeMaquina.png" alt=""></div>
-          <div class="certificate-card"><img src="./certificados/DIO/desafioPortifolio.png" alt=""></div>
-          <div class="certificate-card"><img src="./certificados/DIO/iaEeducacao.png" alt=""></div>
-          <div class="certificate-card"><img src="./certificados/DIO/introducaoAia.png" alt=""></div>
-          <div class="certificate-card"><img src="./certificados/DIO/introducaoBootcampMachineLearning.png" alt=""></div>
-          <div class="certificate-card"><img src="./certificados/DIO/introducaoDesenvolvimentoLowCOde.png" alt=""></div>
-          <div class="certificate-card"><img src="./certificados/DIO/oqSaoIasGenerativas.png" alt=""></div>
-          <div class="certificate-card"><img src="./certificados/DIO/ProcessamentoDeLinguagemNAtural.png" alt=""></div>
+      <div class="cert-card">
+        <div class="cert-img"><img src="./certificados//Alura//arquitetura.png" alt="Certificado"></div>
+        <div class="cert-info">
+          <h3>Arquitetura Css</h3>
+
         </div>
+      </div>
 
-        <h3 class="cert-platform">🏫 FIAP – Nano Courses</h3>
-        <div class="certificates-grid">
-          <div class="certificate-card"><img src="./certificados/Fiap/chatbot.png" alt=""></div>
-          <div class="certificate-card"><img src="./certificados/Fiap/engenhariaDeSoftware.png" alt=""></div>
-          <div class="certificate-card"><img src="./certificados/Fiap/ProgramacaoWeb.png" alt=""></div>
-          <div class="certificate-card"><img src="./certificados/Fiap/Responsive Web Development.png" alt=""></div>
+      <div class="cert-card">
+        <div class="cert-img"><img src="./certificados//Alura/arrays.png" alt="Certificado"></div>
+        <div class="cert-info">
+          <h3>JavaScript Arrays</h3>
+
         </div>
+      </div>
 
-        <h3 class="cert-platform">📘 Udemy</h3>
-        <div class="certificates-grid">
-          <div class="certificate-card"><img src="./certificados/Udemy/cursoWebDesignCompletohtml5Css3Js.png" alt=""></div>
-          <div class="certificate-card"><img src="./certificados/Udemy/ReactdoZeroAMaestria.jpg" alt=""></div>
+      <div class="cert-card">
+        <div class="cert-img"><img src="./certificados//Alura/classesEPosicionamento.png" alt="Certificado"></div>
+        <div class="cert-info">
+          <h3>Classes e posicionamentos</h3>
+
         </div>
-      </section>
-    </section>
-  </main>
+      </div>
 
-  <div id="image-modal" class="modal">
-    <span class="modal-close">&times;</span>
-    <img class="modal-content" id="img-expanded">
-  </div>
+    </div>
+
+    <br><br>
+
+    <div class="cert-grid">
+
+      <div class="cert-card">
+        <div class="cert-img"><img src="./certificados//Alura/comoPUblicarNogit.png" alt="Certificado"></div>
+        <div class="cert-info">
+          <h3>Como publicar projetos no github</h3>
+
+        </div>
+      </div>
+
+      <div class="cert-card">
+        <div class="cert-img"><img src="./certificados//Alura/compartilhandoEColaborandoProjetos.png" alt="Certificado"></div>
+        <div class="cert-info">
+          <h3>Colaborando em projetos</h3>
+
+        </div>
+      </div>
+
+      <div class="cert-card">
+        <div class="cert-img"><img src="./certificados//Alura/desenvolvendoEmReact.png" alt="Certificado"></div>
+        <div class="cert-info">
+          <h3>Desenvolvimento em React</h3>
+
+        </div>
+      </div>
+
+      <div class="cert-card">
+        <div class="cert-img"><img src="./certificados//Alura/flexBoxPosicionamento.png" alt="Certificado"></div>
+        <div class="cert-info">
+          <h3>FlexBox posicionamento</h3>
+
+        </div>
+      </div>
+
+
+      </div>
+
+
+
+  </section>
+
+
+  <section class="cert-section">
+
+    <h2 class="institution-title"><i class="fas fa-graduation-cap"></i> DIO</h2>
+    <div class="cert-grid">
+
+      <div class="cert-card">
+        <div class="cert-img"><img src="./certificados//DIO/algoritimoEaprendizadoDeMaquina.png" alt="Certificado"></div>
+        <div class="cert-info">
+          <h3>Algoritimo e aprendizado de máquina</h3>
+
+        </div>
+      </div>
+
+      <div class="cert-card">
+        <div class="cert-img"><img src="./certificados//DIO/desafioPortifolio.png" alt="Certificado"></div>
+        <div class="cert-info">
+          <h3>Desafio portifólio</h3>
+
+        </div>
+      </div>
+
+      <div class="cert-card">
+        <div class="cert-img"><img src="./certificados//DIO/iaEeducacao.png" alt="Certificado"></div>
+        <div class="cert-info">
+          <h3>IA na educação</h3>
+
+        </div>
+      </div>
+
+      <div class="cert-card">
+        <div class="cert-img"><img src="./certificados//DIO/introducaoAia.png" alt="Certificado"></div>
+        <div class="cert-info">
+          <h3>Introdução à IA</h3>
+
+        </div>
+      </div>
+
+    </div>
+
+    <br><br>
+
+    <div class="cert-grid">
+
+      <div class="cert-card">
+        <div class="cert-img"><img src="./certificados//DIO/introducaoBootcampMachineLearning.png" alt="Certificado"></div>
+        <div class="cert-info">
+          <h3>Introducao Bootcamp Machine Learning</h3>
+
+        </div>
+      </div>
+
+      <div class="cert-card">
+        <div class="cert-img"><img src="./certificados//DIO/introducaoDesenvolvimentoLowCOde.png" alt="Certificado"></div>
+        <div class="cert-info">
+          <h3>Introducao ao desenvolvimento Low Code</h3>
+
+        </div>
+      </div>
+
+      <div class="cert-card">
+        <div class="cert-img"><img src="./certificados//DIO/oqSaoIasGenerativas.png" alt="Certificado"></div>
+        <div class="cert-info">
+          <h3>O que são IAs generativas</h3>
+
+        </div>
+      </div>
+
+      <div class="cert-card">
+        <div class="cert-img"><img src="./certificados//DIO/ProcessamentoDeLinguagemNAtural.png" alt="Certificado"></div>
+        <div class="cert-info">
+          <h3>Processamento de linguagem natural</h3>
+
+        </div>
+      </div>
+
+
+      </div>
+
+
+
+
+
+  </section>
+
+
+
+
+
+
+  <section class="cert-section">
+
+    <h2 class="institution-title"><i class="fas fa-university"></i> FIAP</h2>
+    <div class="cert-grid">
+
+      <div class="cert-card">
+        <div class="cert-img"><img src="./certificados//FIAP/chatbot.png" alt="Certificado FIAP"></div>
+        <div class="cert-info">
+          <h3>Chatbot</h3>
+        </div>
+      </div>
+
+      <div class="cert-card">
+        <div class="cert-img"><img src="./certificados//FIAP/engenhariaDeSoftware.png" alt="Certificado FIAP"></div>
+        <div class="cert-info">
+          <h3>Engenharia de software</h3>
+        </div>
+      </div>
+
+      <div class="cert-card">
+        <div class="cert-img"><img src="./certificados//FIAP/ProgramacaoWeb.png" alt="Certificado FIAP"></div>
+        <div class="cert-info">
+          <h3>Programação web</h3>
+        </div>
+      </div>
+
+      <div class="cert-card">
+        <div class="cert-img"><img src="./certificados//FIAP/Responsive Web Development.png" alt="Certificado FIAP"></div>
+        <div class="cert-info">
+          <h3>Responsividade web</h3>
+        </div>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <footer>
+    <p>&copy; 2026 Gabriel | Todos os direitos reservados</p>
+  </footer>
 
   <script>
-    const modal = document.getElementById("image-modal");
-    const modalImg = document.getElementById("img-expanded");
-    const closeBtn = document.querySelector(".modal-close");
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: 0.1 });
 
-    // Abrir modal ao clicar na imagem
-    document.querySelectorAll('.certificate-card img').forEach(img => {
-      img.onclick = function() {
-        modal.style.display = "flex";
-        modalImg.src = this.src;
-      }
-    });
-
-    // Fechar no botão X
-    closeBtn.onclick = () => modal.style.display = "none";
-
-    // Fechar ao clicar fora da imagem
-    window.onclick = (event) => {
-      if (event.target === modal) {
-        modal.style.display = "none";
-      }
-    };
+    document.querySelectorAll('.cert-card').forEach(card => observer.observe(card));
   </script>
-
 </body>
 </html>
