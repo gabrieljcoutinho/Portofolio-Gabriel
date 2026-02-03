@@ -28,7 +28,6 @@
       z-index: -2;
     }
 
-    /* NAVEGAÇÃO */
     nav {
       position: fixed;
       top: 0; width: 100%;
@@ -37,7 +36,6 @@
       justify-content: space-between;
       align-items: center;
       background: rgba(13, 13, 23, 0.9);
-      -webkit-backdrop-filter: blur(10px);
       backdrop-filter: blur(10px);
       z-index: 1000;
     }
@@ -52,10 +50,9 @@
     .nav-links { display: flex; gap: 2.2rem; list-style: none; }
     .nav-links a { color: #d1d5db; text-decoration: none; font-weight: 500; }
 
-    /* SEÇÕES AMPLAS */
     .cert-section {
       padding: 4rem 4%;
-      max-width: 1600px; /* Aumentei o limite da largura */
+      max-width: 1600px;
       margin: 0 auto;
     }
 
@@ -69,14 +66,13 @@
       border-left: 5px solid #c084fc; padding-left: 20px;
     }
 
-    /* GRID DE 4 COLUNAS MAIORES */
     .cert-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 2rem; /* Mais espaço entre as divs */
+      gap: 2rem;
+      margin-bottom: 4rem;
     }
 
-    /* CARD DO CERTIFICADO GRANDE */
     .cert-card {
       background: rgba(25, 25, 45, 0.6);
       border: 1px solid rgba(255, 255, 255, 0.1);
@@ -85,7 +81,7 @@
       transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
       opacity: 0;
       transform: translateY(40px);
-      height: 100%; /* Garante que todos tenham a mesma altura */
+      height: 100%;
     }
 
     .cert-card.visible { opacity: 1; transform: translateY(0); }
@@ -96,10 +92,9 @@
       box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
     }
 
-    /* IMAGEM DO CERTIFICADO AUMENTADA */
     .cert-img {
       width: 100%;
-      height: 240px; /* Aumentei a altura da imagem significativamente */
+      height: 240px;
       background: #1a1a2e;
       overflow: hidden;
       border-bottom: 1px solid rgba(255, 255, 255, 0.05);
@@ -108,34 +103,16 @@
     .cert-img img {
       width: 100%;
       height: 100%;
-      object-fit: cover; /* Ou 'contain' se quiser ver o certificado inteiro sem cortar */
-      transition: 0.6s;
+      object-fit: cover;
     }
 
     .cert-info { padding: 1.8rem; }
-    .cert-info h3 {
-      font-size: 1.1rem;
-      margin-bottom: 0.8rem;
-      color: #fff;
-    }
+    .cert-info h3 { font-size: 1.1rem; color: #fff; }
 
-    .btn-view {
-      color: #c084fc; text-decoration: none;
-      font-size: 1rem; font-weight: 600;
-      display: flex; align-items: center; gap: 8px;
-      transition: 0.3s;
-    }
-    .btn-view:hover { color: #fff; }
-
-    /* RESPONSIVIDADE */
     @media (max-width: 1200px) { .cert-grid { grid-template-columns: repeat(2, 1fr); } }
     @media (max-width: 768px) {
       .cert-grid { grid-template-columns: 1fr; }
       .cert-img { height: 200px; }
-    }
-
-    h3{
-      font-size: 18px;
     }
 
     footer { text-align: center; padding: 5rem; color: #4b5563; font-size: 1.1rem; }
@@ -159,240 +136,110 @@
   </header>
 
   <section class="cert-section">
-
     <h2 class="institution-title"><i class="fas fa-graduation-cap"></i> Alura</h2>
     <div class="cert-grid">
-
       <div class="cert-card">
-        <div class="cert-img"><img src="./certificados//Alura/algoritimoEOrdenacao.png" alt="Certificado"></div>
-        <div class="cert-info">
-          <h3>Algoritimo e ordenação</h3>
-
-        </div>
+        <div class="cert-img"><img src="./certificados/Alura/algoritimoEOrdenacao.png" alt="Certificado"></div>
+        <div class="cert-info"><h3>Algoritmo e Ordenação</h3></div>
       </div>
-
       <div class="cert-card">
-        <div class="cert-img"><img src="./certificados//Alura//arquitetura.png" alt="Certificado"></div>
-        <div class="cert-info">
-          <h3>Arquitetura Css</h3>
-
-        </div>
+        <div class="cert-img"><img src="./certificados/Alura/arquitetura.png" alt="Certificado"></div>
+        <div class="cert-info"><h3>Arquitetura CSS</h3></div>
       </div>
-
       <div class="cert-card">
-        <div class="cert-img"><img src="./certificados//Alura/arrays.png" alt="Certificado"></div>
-        <div class="cert-info">
-          <h3>JavaScript Arrays</h3>
-
-        </div>
+        <div class="cert-img"><img src="./certificados/Alura/arrays.png" alt="Certificado"></div>
+        <div class="cert-info"><h3>JavaScript Arrays</h3></div>
       </div>
-
       <div class="cert-card">
-        <div class="cert-img"><img src="./certificados//Alura/classesEPosicionamento.png" alt="Certificado"></div>
-        <div class="cert-info">
-          <h3>Classes e posicionamentos</h3>
-
-        </div>
+        <div class="cert-img"><img src="./certificados/Alura/classesEPosicionamento.png" alt="Certificado"></div>
+        <div class="cert-info"><h3>Classes e Posicionamentos</h3></div>
       </div>
-
+      <div class="cert-card">
+        <div class="cert-img"><img src="./certificados/Alura/comoPUblicarNogit.png" alt="Certificado"></div>
+        <div class="cert-info"><h3>Como publicar no GitHub</h3></div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-img"><img src="./certificados/Alura/compartilhandoEColaborandoProjetos.png" alt="Certificado"></div>
+        <div class="cert-info"><h3>Colaborando em Projetos</h3></div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-img"><img src="./certificados/Alura/desenvolvendoEmReact.png" alt="Certificado"></div>
+        <div class="cert-info"><h3>Desenvolvimento em React</h3></div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-img"><img src="./certificados/Alura/flexBoxPosicionamento.png" alt="Certificado"></div>
+        <div class="cert-info"><h3>FlexBox Posicionamento</h3></div>
+      </div>
     </div>
-
-    <br><br>
-
-    <div class="cert-grid">
-
-      <div class="cert-card">
-        <div class="cert-img"><img src="./certificados//Alura/comoPUblicarNogit.png" alt="Certificado"></div>
-        <div class="cert-info">
-          <h3>Como publicar projetos no github</h3>
-
-        </div>
-      </div>
-
-      <div class="cert-card">
-        <div class="cert-img"><img src="./certificados//Alura/compartilhandoEColaborandoProjetos.png" alt="Certificado"></div>
-        <div class="cert-info">
-          <h3>Colaborando em projetos</h3>
-
-        </div>
-      </div>
-
-      <div class="cert-card">
-        <div class="cert-img"><img src="./certificados//Alura/desenvolvendoEmReact.png" alt="Certificado"></div>
-        <div class="cert-info">
-          <h3>Desenvolvimento em React</h3>
-
-        </div>
-      </div>
-
-      <div class="cert-card">
-        <div class="cert-img"><img src="./certificados//Alura/flexBoxPosicionamento.png" alt="Certificado"></div>
-        <div class="cert-info">
-          <h3>FlexBox posicionamento</h3>
-
-        </div>
-      </div>
-
-
-      </div>
-
-
-
-  </section>
-
-
-  <section class="cert-section">
 
     <h2 class="institution-title"><i class="fas fa-graduation-cap"></i> DIO</h2>
     <div class="cert-grid">
-
       <div class="cert-card">
-        <div class="cert-img"><img src="./certificados//DIO/algoritimoEaprendizadoDeMaquina.png" alt="Certificado"></div>
-        <div class="cert-info">
-          <h3>Algoritimo e aprendizado de máquina</h3>
-
-        </div>
+        <div class="cert-img"><img src="./certificados/DIO/algoritimoEaprendizadoDeMaquina.png" alt="Certificado"></div>
+        <div class="cert-info"><h3>Algoritmo e Aprendizado de Máquina</h3></div>
       </div>
-
       <div class="cert-card">
-        <div class="cert-img"><img src="./certificados//DIO/desafioPortifolio.png" alt="Certificado"></div>
-        <div class="cert-info">
-          <h3>Desafio portifólio</h3>
-
-        </div>
+        <div class="cert-img"><img src="./certificados/DIO/desafioPortifolio.png" alt="Certificado"></div>
+        <div class="cert-info"><h3>Desafio Portfólio</h3></div>
       </div>
-
       <div class="cert-card">
-        <div class="cert-img"><img src="./certificados//DIO/iaEeducacao.png" alt="Certificado"></div>
-        <div class="cert-info">
-          <h3>IA na educação</h3>
-
-        </div>
+        <div class="cert-img"><img src="./certificados/DIO/iaEeducacao.png" alt="Certificado"></div>
+        <div class="cert-info"><h3>IA na Educação</h3></div>
       </div>
-
       <div class="cert-card">
-        <div class="cert-img"><img src="./certificados//DIO/introducaoAia.png" alt="Certificado"></div>
-        <div class="cert-info">
-          <h3>Introdução à IA</h3>
-
-        </div>
+        <div class="cert-img"><img src="./certificados/DIO/introducaoAia.png" alt="Certificado"></div>
+        <div class="cert-info"><h3>Introdução à IA</h3></div>
       </div>
-
+      <div class="cert-card">
+        <div class="cert-img"><img src="./certificados/DIO/introducaoBootcampMachineLearning.png" alt="Certificado"></div>
+        <div class="cert-info"><h3>Bootcamp Machine Learning</h3></div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-img"><img src="./certificados/DIO/introducaoDesenvolvimentoLowCOde.png" alt="Certificado"></div>
+        <div class="cert-info"><h3>Desenvolvimento Low Code</h3></div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-img"><img src="./certificados/DIO/oqSaoIasGenerativas.png" alt="Certificado"></div>
+        <div class="cert-info"><h3>IAs Generativas</h3></div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-img"><img src="./certificados/DIO/ProcessamentoDeLinguagemNAtural.png" alt="Certificado"></div>
+        <div class="cert-info"><h3>Linguagem Natural (NLP)</h3></div>
+      </div>
     </div>
-
-    <br><br>
-
-    <div class="cert-grid">
-
-      <div class="cert-card">
-        <div class="cert-img"><img src="./certificados//DIO/introducaoBootcampMachineLearning.png" alt="Certificado"></div>
-        <div class="cert-info">
-          <h3>Introducao Bootcamp Machine Learning</h3>
-
-        </div>
-      </div>
-
-      <div class="cert-card">
-        <div class="cert-img"><img src="./certificados//DIO/introducaoDesenvolvimentoLowCOde.png" alt="Certificado"></div>
-        <div class="cert-info">
-          <h3>Introducao ao desenvolvimento Low Code</h3>
-
-        </div>
-      </div>
-
-      <div class="cert-card">
-        <div class="cert-img"><img src="./certificados//DIO/oqSaoIasGenerativas.png" alt="Certificado"></div>
-        <div class="cert-info">
-          <h3>O que são IAs generativas</h3>
-
-        </div>
-      </div>
-
-      <div class="cert-card">
-        <div class="cert-img"><img src="./certificados//DIO/ProcessamentoDeLinguagemNAtural.png" alt="Certificado"></div>
-        <div class="cert-info">
-          <h3>Processamento de linguagem natural</h3>
-
-        </div>
-      </div>
-
-
-      </div>
-
-
-
-
-
-  </section>
-
-
-
-
-
-
-  <section class="cert-section">
 
     <h2 class="institution-title"><i class="fas fa-university"></i> FIAP</h2>
     <div class="cert-grid">
-
-      <div class="cert-card">
-        <div class="cert-img"><img src="./certificados/Fiap/engenhariaDeSoftware.png" alt="Certificado FIAP"></div>
-        <div class="cert-info">
-          <h3>Chatbot</h3>
-        </div>
-      </div>
-
       <div class="cert-card">
         <div class="cert-img"><img src="./certificados/Fiap/chatbot.png" alt="Certificado FIAP"></div>
-        <div class="cert-info">
-          <h3>Engenharia de software</h3>
-        </div>
+        <div class="cert-info"><h3>Chatbot</h3></div>
       </div>
-
       <div class="cert-card">
-        <div class="cert-img"><img src="./certificados//Fiap//ProgramacaoWeb.png" alt="Certificado FIAP"></div>
-        <div class="cert-info">
-          <h3>Programação web</h3>
-        </div>
+        <div class="cert-img"><img src="./certificados/Fiap/engenhariaDeSoftware.png" alt="Certificado FIAP"></div>
+        <div class="cert-info"><h3>Engenharia de Software</h3></div>
       </div>
-
+      <div class="cert-card">
+        <div class="cert-img"><img src="./certificados/Fiap/ProgramacaoWeb.png" alt="Certificado FIAP"></div>
+        <div class="cert-info"><h3>Programação Web</h3></div>
+      </div>
       <div class="cert-card">
         <div class="cert-img"><img src="./certificados/Fiap/Responsive Web Development.png" alt="Certificado FIAP"></div>
-        <div class="cert-info">
-          <h3>Responsividade web</h3>
-        </div>
+        <div class="cert-info"><h3>Responsividade Web</h3></div>
       </div>
-
     </div>
-
-  </section>
-
-
-  <section class="cert-section">
 
     <h2 class="institution-title"><i class="fas fa-university"></i> Udemy</h2>
     <div class="cert-grid">
-
       <div class="cert-card">
-        <div class="cert-img"><img src="./certificados/Udemy/cursoWebDesignCompletohtml5Css3Js.png" alt="Certificado FIAP"></div>
-        <div class="cert-info">
-          <h3>Curso Web Design completo Html5,Css3 e Js</h3>
-        </div>
+        <div class="cert-img"><img src="./certificados/Udemy/cursoWebDesignCompletohtml5Css3Js.png" alt="Certificado"></div>
+        <div class="cert-info"><h3>Web Design Completo</h3></div>
       </div>
-
       <div class="cert-card">
-        <div class="cert-img"><img src="./certificados/Udemy/ReactdoZeroAMaestria.jpg" alt="Certificado FIAP"></div>
-        <div class="cert-info">
-          <h3>React do zero a maestria</h3>
-        </div>
+        <div class="cert-img"><img src="./certificados/Udemy/ReactdoZeroAMaestria.jpg" alt="Certificado"></div>
+        <div class="cert-info"><h3>React do Zero à Maestria</h3></div>
       </div>
-
-
-
     </div>
-
   </section>
-
 
   <footer>
     <p>&copy; 2026 Gabriel | Todos os direitos reservados</p>
