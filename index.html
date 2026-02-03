@@ -3,116 +3,213 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Gabriel Jorge Coutinho - Portfólio</title>
+  <title>Seu Nome | Portfólio</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 
+  <style>
+    /* RESET E BASE */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
+    html { scroll-behavior: smooth; }
 
-  <link rel="stylesheet" href="css/reset.css">
-<link rel="stylesheet" href="css/base.css">
-<link rel="stylesheet" href="css/layout.css">
-<link rel="stylesheet" href="css/components.css">
-<link rel="stylesheet" href="css/sections.css">
-<link rel="stylesheet" href="css/buttons.css">
-<link rel="stylesheet" href="css/responsive.css">
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      background: #0d0d17;
+      color: #e0e0ff;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
 
-  <link rel="shortcut icon" href="./img/logoPages.png" type="image/x-icon">
+    .background {
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(circle at 15% 25%, rgba(120, 100, 255, 0.08) 0%, transparent 50%),
+        radial-gradient(circle at 85% 75%, rgba(0, 220, 255, 0.05) 0%, transparent 50%);
+      pointer-events: none;
+      z-index: -2;
+    }
 
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    /* NAVEGAÇÃO */
+    nav {
+      position: fixed;
+      top: 0; width: 100%;
+      padding: 1.2rem 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(13, 13, 23, 0.85);
+      backdrop-filter: blur(10px);
+      z-index: 1000;
+    }
 
+    .logo {
+      font-size: 1.7rem;
+      font-weight: 800;
+      background: linear-gradient(90deg, #c084fc, #60a5fa);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
 
- <link rel="manifest" href="./manifest.json">
+    .nav-links { display: flex; gap: 2.2rem; list-style: none; }
+    .nav-links a { color: #d1d5db; text-decoration: none; font-weight: 500; }
+
+    /* HERO */
+    .hero {
+      min-height: 80vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 6%;
+      text-align: center;
+    }
+
+    .hero-content h1 {
+      font-size: clamp(2.8rem, 9vw, 5.5rem);
+      font-weight: 800;
+      margin-bottom: 1rem;
+    }
+
+    .hero-content h1 span { color: #c084fc; }
+
+    /* SOBRE MIM (AGORA ABAIXO DO NOME) */
+    .about-mini {
+      max-width: 700px;
+      margin: 0 auto 3rem;
+      font-size: 1.2rem;
+      color: #a1a9c0;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeUp 1s forwards 0.5s;
+    }
+
+    /* PROJETOS */
+    section { padding: 4rem 6% 8rem; }
+    .section-title {
+      font-size: 2.5rem;
+      text-align: center;
+      margin-bottom: 4rem;
+      color: #fff;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2.5rem;
+      max-width: 1300px;
+      margin: 0 auto;
+    }
+
+    .project-card {
+      background: rgba(25, 25, 45, 0.5);
+      border-radius: 20px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      transition: 0.4s;
+      opacity: 0;
+      transform: translateY(40px);
+    }
+
+    .project-card.visible { opacity: 1; transform: translateY(0); }
+    .project-card:hover { transform: translateY(-10px); border-color: #c084fc; }
+
+    .project-img { height: 220px; background: #1a1a2e; }
+    .project-img img { width: 100%; height: 100%; object-fit: cover; }
+
+    .project-info { padding: 1.8rem; }
+    .tech-stack { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1rem; }
+    .tech {
+      background: rgba(192, 132, 252, 0.1);
+      color: #d8b4fe;
+      padding: 0.2rem 0.7rem;
+      border-radius: 50px;
+      font-size: 0.8rem;
+    }
+
+    @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
+
+    footer { text-align: center; padding: 4rem; color: #4b5563; }
+  </style>
 </head>
 <body>
+
   <div class="background"></div>
 
-  <main class="portfolio-container">
-    <aside class="sidebar glass">
-      <img src="./img/eu.png" alt="Gabriel Jorge Coutinho" class="avatar" />
-      <h1>Gabriel Jorge Coutinho</h1>
-      <p class="title">Desenvolvedor Web</p>
-      <div class="social">
-        <a href="https://github.com/gabrieljcoutinho" target="_blank">
-          <img src="./img/github.png" alt="GitHub" class="imgLinks">
-        </a>
-        <a href="https://www.linkedin.com/in/gabriel-jorge-coutinho/" target="_blank">
-          <img src="./img/linkedin.png" alt="LinkedIn" class="imgLinks">
-        </a>
-        <a href="https://www.instagram.com/gabrieljorgecoutinho/" target="_blank">
-          <img src="./img/instagram.png" alt="Instagram" class="imgLinks">
-        </a>
-        <br>
-         <a href="./pdf/curriculo.pdf" download class="btn-curriculo">📄 Baixar Currículo</a>
+  <nav>
+    <div class="logo">Portfolio</div>
+    <ul class="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#projetos">Projetos</a></li>
+      <li><a href="certificados.html">Certificados</a></li>
+    </ul>
+  </nav>
 
-         <a href="certificados.html" class="btn-curriculo">
-  🎓 Ver Certificados
-</a>
-    </aside>
+  <header class="hero" id="home">
+    <div class="hero-content">
+      <h1>Oi, eu sou o <span>Gabriel</span></h1>
+      <div class="about-mini">
+        <p>Desenvolvedor focado em criar interfaces de alto impacto e performance. Transformo café em código limpo e designs modernos.</p>
+      </div>
+      <a href="#projetos" class="logo" style="text-decoration: none; font-size: 1.1rem;">Ver meu trabalho ↓</a>
+    </div>
+  </header>
 
-    <section class="content">
-      <section class="glass about">
-        <h2>Sobre Mim</h2>
-        <p>Sou um desenvolvedor web em formação. Domínio em HTML, CSS, JS e React, com foco em design moderno e acessibilidade.</p>
-      </section>
+  <section id="projetos">
+    <h2 class="section-title">Projetos Selecionados</h2>
+    <div class="projects-grid">
 
-      <section class="glass skills">
-        <h2>Habilidades</h2>
-        <div class="skills-icons">
-          <img src="./img/html5.png" alt="HTML5">
-          <img src="./img/css-3.png" alt="CSS3">
-          <img src="./img/javaScript.png" alt="JavaScript">
-          <img src="./img/nodejs.png" alt="Node.js">
-        <img src="./img/react.png" alt="React">
-        <img src="./img/github.png" alt="">
-        </div>
-      </section>
-
-      <section class="glass projects">
-        <h2>Projetos</h2>
-
-
-        <div class="projects-grid">
-          <div class="project-card">
-            <h3>Solaris - Projeto Academico</h3>
-            <p>App de monitoramente de energia solar</p>
-            <a href="https://challenge-fiap-sooty.vercel.app/" target="_blank">Ver Projeto</a>
-          </div>
-        </div>
-
-          <div class="projects-grid">
-          <div class="project-card">
-            <h3>Loja de Vinho</h3>
-            <p>App de uma loja de vinho</p>
-            <a href="https://loja-de-vinho-kiykc9u2b-gabrieljcoutinhos-projects.vercel.app/" target="_blank">Ver Projeto</a>
-          </div>
-        </div>
-
-
-
-
-          <div class="projects-grid">
-          <div class="project-card">
+      <div class="project-card">
+        <a href="https://space-app-ebon-ten.vercel.app/" target="_blank" rel="noopener noreferrer" style="display: block; color: inherit; text-decoration: none;">
+          <div class="project-img"><img src="./imgs//spaceApp.jpg" alt="Space App"></div>
+          <div class="project-info">
             <h3>Space App</h3>
-            <p>App de um site que msotra imagens do espaço</p>
-            <a href="https://space-app-ebon-ten.vercel.app/" target="_blank">Ver Projeto</a>
+            <div class="tech-stack"><span class="tech">React</span><span class="tech">TypeScript</span></div>
           </div>
-        </div>
+        </a>
+      </div>
 
-     <div class="projects-grid">
-          <div class="project-card">
-            <h3>Banco</h3>
-            <p>App de um banco podendo colocar e extriar dinheiro</p>
-            <a href="https://banco-fawn.vercel.app/" target="_blank">Ver Projeto</a>
+      <div class="project-card">
+        <a href="https://challenge-fiap-sooty.vercel.app/" target="_blank" rel="noopener noreferrer" style="display: block; color: inherit; text-decoration: none;">
+          <div class="project-img"><img src="./imgs/chalenge.png" alt="Challenge Fiap 2025"></div>
+          <div class="project-info">
+            <h3>Challenge Fiap 2025</h3>
+            <div class="tech-stack"><span class="tech">React</span><span class="tech">JavaScript</span></div>
           </div>
-        </div>
+        </a>
+      </div>
 
-      </section>
+      <div class="project-card">
+        <a href="https://banco-fawn.vercel.app/" target="_blank" rel="noopener noreferrer" style="display: block; color: inherit; text-decoration: none;">
+          <div class="project-img"><img src="./imgs//projetobanco.png" alt="Projeto Bytebanck"></div>
+          <div class="project-info">
+            <h3>Projeto Bytebanck</h3>
+            <div class="tech-stack"><span class="tech">Vue.js</span><span class="tech">TypeScript</span></div>
+          </div>
+        </a>
+      </div>
 
-      <section class="glass contact">
-        <h2>Contato</h2>
-        <p>Email: <a href="mailto:gabrieljcoutinho@gmail.com">gabrieljcoutinho@gmail.com</a></p>
+      </div>
 
-      </section>
-    </section>
-  </main>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2026 Seu Nome</p>
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.project-card').forEach(card => observer.observe(card));
+  </script>
 </body>
 </html>
