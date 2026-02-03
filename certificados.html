@@ -57,18 +57,18 @@
     }
 
     .page-header { padding: 10rem 6% 3rem; text-align: center; }
-    .page-header h1 { font-size: 3.5rem; }
+    .page-header h1 { font-size: 3.5rem; color: #fff; }
     .page-header h1 span { color: #c084fc; }
 
     .institution-title {
       display: flex; align-items: center; gap: 1rem;
-      font-size: 2rem; margin-bottom: 3rem; color: #fff;
+      font-size: 2rem; margin: 3rem 0 2rem; color: #fff;
       border-left: 5px solid #c084fc; padding-left: 20px;
     }
 
     .cert-grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
       gap: 2rem;
       margin-bottom: 4rem;
     }
@@ -78,42 +78,33 @@
       border: 1px solid rgba(255, 255, 255, 0.1);
       border-radius: 20px;
       overflow: hidden;
-      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-      opacity: 0;
-      transform: translateY(40px);
+      transition: all 0.3s ease;
       height: 100%;
+      /* Removido opacity 0 para garantir que apareça sempre */
     }
 
-    .cert-card.visible { opacity: 1; transform: translateY(0); }
-
     .cert-card:hover {
-      transform: translateY(-12px) scale(1.02);
+      transform: translateY(-8px);
       border-color: #c084fc;
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
     }
 
     .cert-img {
       width: 100%;
-      height: 240px;
+      height: 220px;
       background: #1a1a2e;
-      overflow: hidden;
       border-bottom: 1px solid rgba(255, 255, 255, 0.05);
     }
 
     .cert-img img {
       width: 100%;
       height: 100%;
-      object-fit: cover;
+      object-fit: contain; /* Ajustado para não cortar o certificado */
+      display: block;
     }
 
-    .cert-info { padding: 1.8rem; }
+    .cert-info { padding: 1.5rem; text-align: center; }
     .cert-info h3 { font-size: 1.1rem; color: #fff; }
-
-    @media (max-width: 1200px) { .cert-grid { grid-template-columns: repeat(2, 1fr); } }
-    @media (max-width: 768px) {
-      .cert-grid { grid-template-columns: 1fr; }
-      .cert-img { height: 200px; }
-    }
 
     footer { text-align: center; padding: 5rem; color: #4b5563; font-size: 1.1rem; }
   </style>
@@ -139,35 +130,35 @@
     <h2 class="institution-title"><i class="fas fa-graduation-cap"></i> Alura</h2>
     <div class="cert-grid">
       <div class="cert-card">
-        <div class="cert-img"><img src="./certificados/Alura/algoritimoEOrdenacao.png" alt="Certificado"></div>
+        <div class="cert-img"><img src="certificados/Alura/algoritimoEOrdenacao.png" alt="Certificado"></div>
         <div class="cert-info"><h3>Algoritmo e Ordenação</h3></div>
       </div>
       <div class="cert-card">
-        <div class="cert-img"><img src="./certificados/Alura/arquitetura.png" alt="Certificado"></div>
+        <div class="cert-img"><img src="certificados/Alura/arquitetura.png" alt="Certificado"></div>
         <div class="cert-info"><h3>Arquitetura CSS</h3></div>
       </div>
       <div class="cert-card">
-        <div class="cert-img"><img src="./certificados/Alura/arrays.png" alt="Certificado"></div>
+        <div class="cert-img"><img src="certificados/Alura/arrays.png" alt="Certificado"></div>
         <div class="cert-info"><h3>JavaScript Arrays</h3></div>
       </div>
       <div class="cert-card">
-        <div class="cert-img"><img src="./certificados/Alura/classesEPosicionamento.png" alt="Certificado"></div>
+        <div class="cert-img"><img src="certificados/Alura/classesEPosicionamento.png" alt="Certificado"></div>
         <div class="cert-info"><h3>Classes e Posicionamentos</h3></div>
       </div>
       <div class="cert-card">
-        <div class="cert-img"><img src="./certificados/Alura/comoPUblicarNogit.png" alt="Certificado"></div>
+        <div class="cert-img"><img src="certificados/Alura/comoPUblicarNogit.png" alt="Certificado"></div>
         <div class="cert-info"><h3>Como publicar no GitHub</h3></div>
       </div>
       <div class="cert-card">
-        <div class="cert-img"><img src="./certificados/Alura/compartilhandoEColaborandoProjetos.png" alt="Certificado"></div>
+        <div class="cert-img"><img src="certificados/Alura/compartilhandoEColaborandoProjetos.png" alt="Certificado"></div>
         <div class="cert-info"><h3>Colaborando em Projetos</h3></div>
       </div>
       <div class="cert-card">
-        <div class="cert-img"><img src="./certificados/Alura/desenvolvendoEmReact.png" alt="Certificado"></div>
+        <div class="cert-img"><img src="certificados/Alura/desenvolvendoEmReact.png" alt="Certificado"></div>
         <div class="cert-info"><h3>Desenvolvimento em React</h3></div>
       </div>
       <div class="cert-card">
-        <div class="cert-img"><img src="./certificados/Alura/flexBoxPosicionamento.png" alt="Certificado"></div>
+        <div class="cert-img"><img src="certificados/Alura/flexBoxPosicionamento.png" alt="Certificado"></div>
         <div class="cert-info"><h3>FlexBox Posicionamento</h3></div>
       </div>
     </div>
@@ -175,35 +166,35 @@
     <h2 class="institution-title"><i class="fas fa-graduation-cap"></i> DIO</h2>
     <div class="cert-grid">
       <div class="cert-card">
-        <div class="cert-img"><img src="./certificados/DIO/algoritimoEaprendizadoDeMaquina.png" alt="Certificado"></div>
+        <div class="cert-img"><img src="certificados/DIO/algoritimoEaprendizadoDeMaquina.png" alt="Certificado"></div>
         <div class="cert-info"><h3>Algoritmo e Aprendizado de Máquina</h3></div>
       </div>
       <div class="cert-card">
-        <div class="cert-img"><img src="./certificados/DIO/desafioPortifolio.png" alt="Certificado"></div>
+        <div class="cert-img"><img src="certificados/DIO/desafioPortifolio.png" alt="Certificado"></div>
         <div class="cert-info"><h3>Desafio Portfólio</h3></div>
       </div>
       <div class="cert-card">
-        <div class="cert-img"><img src="./certificados/DIO/iaEeducacao.png" alt="Certificado"></div>
+        <div class="cert-img"><img src="certificados/DIO/iaEeducacao.png" alt="Certificado"></div>
         <div class="cert-info"><h3>IA na Educação</h3></div>
       </div>
       <div class="cert-card">
-        <div class="cert-img"><img src="./certificados/DIO/introducaoAia.png" alt="Certificado"></div>
+        <div class="cert-img"><img src="certificados/DIO/introducaoAia.png" alt="Certificado"></div>
         <div class="cert-info"><h3>Introdução à IA</h3></div>
       </div>
       <div class="cert-card">
-        <div class="cert-img"><img src="./certificados/DIO/introducaoBootcampMachineLearning.png" alt="Certificado"></div>
+        <div class="cert-img"><img src="certificados/DIO/introducaoBootcampMachineLearning.png" alt="Certificado"></div>
         <div class="cert-info"><h3>Bootcamp Machine Learning</h3></div>
       </div>
       <div class="cert-card">
-        <div class="cert-img"><img src="./certificados/DIO/introducaoDesenvolvimentoLowCOde.png" alt="Certificado"></div>
+        <div class="cert-img"><img src="certificados/DIO/introducaoDesenvolvimentoLowCOde.png" alt="Certificado"></div>
         <div class="cert-info"><h3>Desenvolvimento Low Code</h3></div>
       </div>
       <div class="cert-card">
-        <div class="cert-img"><img src="./certificados/DIO/oqSaoIasGenerativas.png" alt="Certificado"></div>
+        <div class="cert-img"><img src="certificados/DIO/oqSaoIasGenerativas.png" alt="Certificado"></div>
         <div class="cert-info"><h3>IAs Generativas</h3></div>
       </div>
       <div class="cert-card">
-        <div class="cert-img"><img src="./certificados/DIO/ProcessamentoDeLinguagemNAtural.png" alt="Certificado"></div>
+        <div class="cert-img"><img src="certificados/DIO/ProcessamentoDeLinguagemNAtural.png" alt="Certificado"></div>
         <div class="cert-info"><h3>Linguagem Natural (NLP)</h3></div>
       </div>
     </div>
@@ -211,19 +202,19 @@
     <h2 class="institution-title"><i class="fas fa-university"></i> FIAP</h2>
     <div class="cert-grid">
       <div class="cert-card">
-        <div class="cert-img"><img src="./certificados/Fiap/chatbot.png" alt="Certificado FIAP"></div>
+        <div class="cert-img"><img src="certificados/Fiap/chatbot.png" alt="Certificado FIAP"></div>
         <div class="cert-info"><h3>Chatbot</h3></div>
       </div>
       <div class="cert-card">
-        <div class="cert-img"><img src="./certificados/Fiap/engenhariaDeSoftware.png" alt="Certificado FIAP"></div>
+        <div class="cert-img"><img src="certificados/Fiap/engenhariaDeSoftware.png" alt="Certificado FIAP"></div>
         <div class="cert-info"><h3>Engenharia de Software</h3></div>
       </div>
       <div class="cert-card">
-        <div class="cert-img"><img src="./certificados/Fiap/ProgramacaoWeb.png" alt="Certificado FIAP"></div>
+        <div class="cert-img"><img src="certificados/Fiap/ProgramacaoWeb.png" alt="Certificado FIAP"></div>
         <div class="cert-info"><h3>Programação Web</h3></div>
       </div>
       <div class="cert-card">
-        <div class="cert-img"><img src="./certificados/Fiap/Responsive Web Development.png" alt="Certificado FIAP"></div>
+        <div class="cert-img"><img src="certificados/Fiap/Responsive Web Development.png" alt="Certificado FIAP"></div>
         <div class="cert-info"><h3>Responsividade Web</h3></div>
       </div>
     </div>
@@ -231,11 +222,11 @@
     <h2 class="institution-title"><i class="fas fa-university"></i> Udemy</h2>
     <div class="cert-grid">
       <div class="cert-card">
-        <div class="cert-img"><img src="./certificados/Udemy/cursoWebDesignCompletohtml5Css3Js.png" alt="Certificado"></div>
+        <div class="cert-img"><img src="certificados/Udemy/cursoWebDesignCompletohtml5Css3Js.png" alt="Certificado"></div>
         <div class="cert-info"><h3>Web Design Completo</h3></div>
       </div>
       <div class="cert-card">
-        <div class="cert-img"><img src="./certificados/Udemy/ReactdoZeroAMaestria.jpg" alt="Certificado"></div>
+        <div class="cert-img"><img src="certificados/Udemy/ReactdoZeroAMaestria.jpg" alt="Certificado"></div>
         <div class="cert-info"><h3>React do Zero à Maestria</h3></div>
       </div>
     </div>
@@ -246,13 +237,14 @@
   </footer>
 
   <script>
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) entry.target.classList.add('visible');
-      });
-    }, { threshold: 0.1 });
-
-    document.querySelectorAll('.cert-card').forEach(card => observer.observe(card));
+    // Script simplificado apenas para log de erro se a imagem não carregar
+    document.querySelectorAll('img').forEach(img => {
+      img.onerror = function() {
+        console.error("Não encontrei a imagem: " + this.src);
+        this.style.display = 'none';
+        this.parentElement.innerHTML = '<div style="padding:20px; color:#ff4b4b; font-size:12px;">Arquivo não encontrado na rota:<br>'+this.src+'</div>';
+      };
+    });
   </script>
 </body>
 </html>
