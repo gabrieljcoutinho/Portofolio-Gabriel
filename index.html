@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Seu Nome | Portfólio</title>
+  <title>Gabriel | Portfólio</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 
   <style>
@@ -57,7 +57,8 @@
     }
 
     .nav-links { display: flex; gap: 2.2rem; list-style: none; }
-    .nav-links a { color: #d1d5db; text-decoration: none; font-weight: 500; }
+    .nav-links a { color: #d1d5db; text-decoration: none; font-weight: 500; transition: 0.3s; }
+    .nav-links a:hover { color: #c084fc; }
 
     /* HERO */
     .hero {
@@ -77,15 +78,36 @@
 
     .hero-content h1 span { color: #c084fc; }
 
-    /* SOBRE MIM (AGORA ABAIXO DO NOME) */
     .about-mini {
       max-width: 700px;
-      margin: 0 auto 3rem;
+      margin: 0 auto 2rem;
       font-size: 1.2rem;
       color: #a1a9c0;
       opacity: 0;
       transform: translateY(20px);
       animation: fadeUp 1s forwards 0.5s;
+    }
+
+    /* LINKS SOCIAIS */
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-bottom: 3rem;
+      opacity: 0;
+      animation: fadeUp 1s forwards 0.8s;
+    }
+
+    .social-links a {
+      color: #e0e0ff;
+      font-size: 1.8rem;
+      transition: 0.3s;
+      text-decoration: none;
+    }
+
+    .social-links a:hover {
+      color: #c084fc;
+      transform: translateY(-5px);
     }
 
     /* PROJETOS */
@@ -118,7 +140,7 @@
     .project-card.visible { opacity: 1; transform: translateY(0); }
     .project-card:hover { transform: translateY(-10px); border-color: #c084fc; }
 
-    .project-img { height: 220px; background: #1a1a2e; }
+    .project-img { height: 220px; background: #1a1a2e; overflow: hidden; }
     .project-img img { width: 100%; height: 100%; object-fit: cover; }
 
     .project-info { padding: 1.8rem; }
@@ -133,7 +155,7 @@
 
     @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
 
-    footer { text-align: center; padding: 4rem; color: #4b5563; }
+    footer { text-align: center; padding: 4rem; color: #4b5563; border-top: 1px solid rgba(255,255,255,0.05); }
   </style>
 </head>
 <body>
@@ -155,6 +177,16 @@
       <div class="about-mini">
         <p>Desenvolvedor focado em criar interfaces de alto impacto e performance. Transformo café em código limpo e designs modernos.</p>
       </div>
+
+      <div class="social-links">
+        <a href="https://github.com/gabrieljcoutinho" target="_blank" aria-label="GitHub">
+          <i class="fab fa-github"></i>
+        </a>
+        <a href="https://www.linkedin.com/in/gabriel-jorge-coutinho/" target="_blank" aria-label="LinkedIn">
+          <i class="fab fa-linkedin"></i>
+        </a>
+      </div>
+
       <a href="#projetos" class="logo" style="text-decoration: none; font-size: 1.1rem;">Ver meu trabalho ↓</a>
     </div>
   </header>
@@ -165,7 +197,7 @@
 
       <div class="project-card">
         <a href="https://space-app-ebon-ten.vercel.app/" target="_blank" rel="noopener noreferrer" style="display: block; color: inherit; text-decoration: none;">
-          <div class="project-img"><img src="./imgs//spaceApp.jpg" alt="Space App"></div>
+          <div class="project-img"><img src="./imgs/spaceApp.jpg" alt="Space App"></div>
           <div class="project-info">
             <h3>Space App</h3>
             <div class="tech-stack"><span class="tech">React</span><span class="tech">TypeScript</span></div>
@@ -185,7 +217,7 @@
 
       <div class="project-card">
         <a href="https://banco-fawn.vercel.app/" target="_blank" rel="noopener noreferrer" style="display: block; color: inherit; text-decoration: none;">
-          <div class="project-img"><img src="./imgs//projetobanco.png" alt="Projeto Bytebanck"></div>
+          <div class="project-img"><img src="./imgs/projetobanco.png" alt="Projeto Bytebanck"></div>
           <div class="project-info">
             <h3>Projeto Bytebanck</h3>
             <div class="tech-stack"><span class="tech">Vue.js</span><span class="tech">TypeScript</span></div>
@@ -193,13 +225,11 @@
         </a>
       </div>
 
-      </div>
-
     </div>
   </section>
 
   <footer>
-    <p>&copy; 2026 Seu Nome</p>
+    <p>&copy; 2026 Gabriel | Todos os direitos reservados.</p>
   </footer>
 
   <script>
